@@ -1,0 +1,21 @@
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+   
+
+    nav {
+      background-color: var(--color1);
+      color: var(--color5);
+      padding: 0.5rem 1rem;
+    }
+    .expense{
+        font-family: 'Rubik', sans-serif; font-weight: 400; font-style: italic;
+    }
+    .tracker{
+        font-family: 'Rubik', sans-serif; font-weight: 700;
+    }
+
+    

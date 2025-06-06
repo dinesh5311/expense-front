@@ -1,0 +1,208 @@
+/* === Hero Section === */
+.hero {
+  height: 100vh;
+  background: linear-gradient(to right, #fbd3e9, #bb377d);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4em;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5em;
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 30px;
+  font-size: 1.2em;
+  animation: bounce 2s infinite;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* === Main Content === */
+.main-content {
+  padding: 60px 20px;
+  background-color: #fff0f6;
+  color: #333;
+}
+
+.intro-message, .final-message {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.intro-message h2, .final-message h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5em;
+  color: #bb377d;
+}
+
+.intro-message p, .final-message p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1em;
+}
+
+/* === Timeline === */
+.timeline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.timeline-item {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  max-width: 300px;
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s;
+  height: 22rem;
+}
+
+.timeline-item:hover {
+  transform: scale(1.05);
+}
+
+.timeline-content img {
+  max-width: 100%;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.timeline-content h3 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.8em;
+  color: #bb377d;
+}
+
+.timeline-content p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+  color: #555;
+}
+
+/* === Final Reasons Section === */
+.love-reasons {
+  margin-top: 20px;
+}
+
+.cta-button {
+  background-color: #bb377d;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 1.1em;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #a12e69;
+}
+
+#reasons-list {
+  list-style: none;
+  margin-top: 20px;
+  padding: 0;
+}
+
+#reasons-list li {
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+  color: #444;
+}
+
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  background: #fbd3e9;
+  color: #bb377d;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.music-controls {
+  margin-bottom: 10px;
+}
+
+.music-controls button {
+  background: none;
+  border: 2px solid #bb377d;
+  color: #bb377d;
+  font-size: 1.5em;
+  padding: 6px 12px;
+  margin: 0 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.music-controls button:hover {
+  background: #bb377d;
+  color: white;
+}
+
+/* === Animations === */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.card-image1 {
+	border-radius: 8px;
+  overflow: hidden;
+  padding-bottom: 60%;
+  background-image: url("../../assets/img/pic4.jpeg");
+  background-repeat: no-repeat;
+  background-size: 99%;
+  background-position: 0 5%;
+  position: relative;
+}
+.card-image2{
+	border-radius: 8px;
+  overflow: hidden;
+  padding-bottom: 12%;
+  background-image: url("../../assets/img/pic5.jpeg");
+  background-repeat: no-repeat;
+  background-size: 99%;
+  background-position: 0 5%;
+  position: relative;
+}
+.card-image3 {
+	border-radius: 8px;
+  overflow: hidden;
+  padding-bottom: 12%;
+  background-image: url("../../assets/img/pic3.jpeg");
+  background-repeat: no-repeat;
+  background-size: 99%;
+  background-position: 0 5%;
+  position: relative;
+}
+.card-image4 {
+	border-radius: 8px;
+  overflow: hidden;
+  padding-bottom: 12%;
+  background-image: url("../../assets/img/pic2.jpeg");
+  background-repeat: no-repeat;
+  background-size: 99%;
+  background-position: 0 5%;
+  position: relative;
+}

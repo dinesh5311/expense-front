@@ -1,0 +1,85 @@
+<div class="container p-3">
+
+  <!-- Expense Summary Cards -->
+  <div class="row mb-4">
+
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center w-100 mb-3">
+  
+  <a class="button-surpise" routerLink="/buulovespuchuu">Surprise for Puchuu 💕</a>
+</div>
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center w-100 mb-3">
+  <p class="introLine mb-2 mb-md-0">Track your expenses effortlessly and visualize your spending trends in one place</p>
+  <a class="button" routerLink="/add">Add Expense</a>
+</div>
+
+
+    <!-- This Month -->
+    <div class="col-sm-6 col-md-3 mb-3">
+      <div class="card h-100" style="background-color: var(--color5); color: var(--color1);">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+          <h5 class="card-title">This Month</h5>
+          <p class="card-text fs-4">{{currentMonth}}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Total Expense This Month -->
+    <div class="col-sm-6 col-md-3 mb-3">
+      <div class="card h-100" style="background-color: var(--color4); color: var(--color5);">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+          <h5 class="card-title">Total Expense This Month</h5>
+          <p class="card-text fs-3">₹{{currentMonthExpense}}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Total Expense Last Month -->
+    <div class="col-sm-6 col-md-3 mb-3">
+      <div class="card h-100" style="background-color: var(--color3); color: var(--color5);">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+          <h5 class="card-title">Total Expense Last Month</h5>
+          <p class="card-text fs-3">₹{{lastMonthExpense}}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Total Expense Lifetime -->
+    <div class="col-sm-6 col-md-3 mb-3">
+      <div class="card h-100" style="background-color: var(--color2); color: var(--color5);">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+          <h5 class="card-title">Total Expense Lifetime</h5>
+          <p class="card-text fs-3">₹{{lifeTimeExpense}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Expense Table and Charts -->
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <div class="card h-100" style="background-color: #DFE8E6;">
+        <div class="card-body text-center">
+          <h5 class="card-title">Expense Table</h5>
+          <!-- <app-table [data]="expenses"></app-table> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 d-flex flex-column mb-3" style="height: 100%;">
+      <div class="card mb-3 flex-fill" style="background-color: #DFE8E6;">
+        <div class="card-body text-center">
+          <h5 class="card-title">Pie Chart</h5>
+          <p class="text-muted">[Pie chart will go here]</p>
+        </div>
+      </div>
+      <div class="card flex-fill" style="background-color: #DFE8E6;">
+        <div class="card-body text-center">
+          <h5 class="card-title">Expense Graph</h5>
+          <p class="text-muted">[Graph will go here]</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

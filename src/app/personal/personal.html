@@ -1,0 +1,86 @@
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<section class="hero">
+  <div class="hero-content">
+    <h1>Our First Year</h1>
+    <p>Happy Anniversary, My Love , My Cutuuu Puchuuuuu ❤️</p>
+  </div>
+  <div class="scroll-down">Scroll to relive our memories ▼</div>
+</section>
+
+<main class="main-content">
+  <div class="intro-message">
+    <h2>365 Days of Us...</h2>
+    <p>Pichle ek saal me hamne kya kya kiya puchuuu , hamrai first trip jhibi ki , isi beech puchuu ka bday manaya hamne , fir hum saath me delhi gye , 
+        aur dec end me fir hum kufri bhi gye the jahan hamne thand me baclony me dance kiya tha . fir buu goa gya  tha , fir goa se aate hi hum udaipur gye the , fir hum delhi me gurudware  gye .
+         uske baad hum saath me kedarnath mandir bhi gye puchuu  buu ke bday pr . 
+        <br>
+    Hamne saath me kitni trip kri h abhi aur boht trips baaki h mere cutu puchuuu ke saath  😘</p>
+  </div>
+
+ <div class="timeline">
+
+  <div class="timeline-item">
+    <div class="timeline-content card-image1">
+      <img src="assets/img/pic1.jpeg" alt="Our First Date">
+      <h3>Our First Date</h3>
+      <p  style="color: white;">Where it all began. I knew from this moment that you were someone special.</p>
+    </div>
+  </div>
+
+  <div class="timeline-item card-image2 ">
+    <div class="timeline-content">
+      <img src="assets/img/pic2.jpeg" alt="Our First Trip">
+      <h3>Our First Trip</h3>
+      <p  style="color: white;">Remember the laughter, the views, and that time we got lost? Best adventure ever.</p>
+    </div>
+  </div>
+
+  <div class="timeline-item card-image3">
+    <div class="timeline-content">
+        <img class="card-image" src="assets/img/expense.jpg" alt="Expense Image">
+
+      <img src="assets/img/expense.jpg" alt="Simple Moments">
+      <h3>Simple Moments</h3>
+      <p  style="color: white;">Cooking together, watching movies... they mean the world to me.</p>
+    </div>
+  </div>
+
+  <div class="timeline-item card-image4">
+    <div class="timeline-content">
+      <h3>Celebrating Together</h3>
+      <p style="color: white;">Marking milestones and being each other's biggest cheerleader. So proud of us.</p>
+    </div>
+  </div>
+
+</div>
+
+  <div class="final-message">
+    <h2>And a million reasons why...</h2>
+    <p>It's hard to list everything, but here are just a few reasons I love you mu puchuuuu 😘.</p>
+    <div class="love-reasons">
+  <button *ngIf="!showReason" id="reasons-btn" class="cta-button" (click)="showReasons()">Click Me</button>
+  <ul id="reasons-list" [style.height]="showReason ? reasons.length * 50 + 'px' : '0'">
+    <li *ngFor="let reason of reasons; let i = index"
+        [style.opacity]="showReason ? 1 : 0"
+        [style.transitionDelay]="showReason ? (i * 0.5) + 's' : '0s'">
+      {{ reason }}
+    </li>
+  </ul>
+</div>
+
+
+  </div>
+</main>
+
+<audio id="background-music" loop>
+  <source src="assets/music/your-music-file.mp3" type="audio/mpeg" />
+</audio>
+
+<footer>
+  <div class="music-controls" style="display: none;">
+    <button id="play-btn">▶</button>
+    <button id="pause-btn">❚❚</button>
+  </div>
+  <p>To many more years of love and happiness.</p>
+  <p style="font-family: 'Great Vibes', cursive; font-size: 2em; margin-top: 10px;">With all my love, Cutuu Buuuu ❤️ </p>
+</footer>
