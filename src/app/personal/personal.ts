@@ -11,28 +11,7 @@ import { CommonModule } from '@angular/common';
 export class Personal implements AfterViewInit {
   showReason = false;
 
-  timelineItems = [
-    {
-      img: 'assets/img/pic1.jpeg',
-      title: 'Our First Date',
-      desc: 'Where it all began. I knew from this moment that you were someone special.'
-    },
-    {
-      img: 'assets/img/pic2.jpeg',
-      title: 'Our First Trip',
-      desc: 'Remember the laughter, the views, and that time we got lost? Best adventure ever.'
-    },
-    {
-      img: 'assets/img/pic3.jpeg',
-      title: 'Simple Moments',
-      desc: 'Cooking together, watching movies... they mean the world to me.'
-    },
-    {
-      img: 'assets/img/pic4.jpeg',
-      title: 'Celebrating Together',
-      desc: 'Marking milestones and being each other\'s biggest cheerleader. So proud of us.'
-    }
-  ];
+  
 
   reasons = [
     '...because mujhe puchuu ke saath rehna accha lgta h.',
