@@ -29,7 +29,6 @@ export class Dashboard {
     this.getLastMonthExpense();
     this.getLifetimeExpense();
 
-this.toastService.show('Expense saved! Redirecting to Dashboard', 'warning');
 
   }
 
