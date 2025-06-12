@@ -1,0 +1,22 @@
+.toast {
+  position: fixed;
+  top: 50px;
+  right: 20px;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  color: white;
+  z-index: 9999;
+  display: block;
+  animation: fadeInOut 3s forwards;
+
+  &.success { background-color: #4caf50; }
+  &.error { background-color: #f44336; }
+  &.info { background-color: #2196f3; }
+  &.warning { background-color: #ff9800; }
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-10px); }
+  10%, 90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
+}

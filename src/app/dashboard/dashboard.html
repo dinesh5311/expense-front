@@ -18,7 +18,7 @@
       <div class="card h-100" style="background-color: var(--color5); color: var(--color1);">
         <div class="card-body d-flex flex-column justify-content-center align-items-center">
           <h5 class="card-title">This Month</h5>
-          <p class="card-text fs-4">{{currentMonth}}</p>
+          <p class="card-text fs-4"> {{getCurrentMonthAndYear()}}</p>
         </div>
       </div>
     </div>
@@ -28,7 +28,7 @@
       <div class="card h-100" style="background-color: var(--color4); color: var(--color5);">
         <div class="card-body d-flex flex-column justify-content-center align-items-center">
           <h5 class="card-title">Total Expense This Month</h5>
-          <p class="card-text fs-3">₹{{currentMonthExpense}}</p>
+          <p class="card-text fs-3">₹{{total_amount_this_month}} </p>
         </div>
       </div>
     </div>
@@ -38,7 +38,8 @@
       <div class="card h-100" style="background-color: var(--color3); color: var(--color5);">
         <div class="card-body d-flex flex-column justify-content-center align-items-center">
           <h5 class="card-title">Total Expense Last Month</h5>
-          <p class="card-text fs-3">₹{{lastMonthExpense}}</p>
+          <p class="card-text fs-3"> ₹{{total_amount_last_month}}</p>
+
         </div>
       </div>
     </div>
@@ -48,7 +49,7 @@
       <div class="card h-100" style="background-color: var(--color2); color: var(--color5);">
         <div class="card-body d-flex flex-column justify-content-center align-items-center">
           <h5 class="card-title">Total Expense Lifetime</h5>
-          <p class="card-text fs-3">₹{{lifeTimeExpense}}</p>
+          <p class="card-text fs-3">₹{{total_amount_lifetime}}</p>
         </div>
       </div>
     </div>
@@ -60,7 +61,7 @@
       <div class="card h-100" style="background-color: #DFE8E6;">
         <div class="card-body text-center">
           <h5 class="card-title">Expense Table</h5>
-          <!-- <app-table [data]="expenses"></app-table> -->
+         
         </div>
       </div>
     </div>
@@ -81,5 +82,3 @@
     </div>
   </div>
 </div>
-
-

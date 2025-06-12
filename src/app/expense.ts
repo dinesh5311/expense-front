@@ -13,7 +13,8 @@ export interface Expense {
   providedIn: 'root'
 })
 export class ExpenseService {
-  private apiUrl = 'https://expense-tracker-wbnq.onrender.com/expenses/';  // Update if hosted elsewhere
+  private apiUrl = 'https://expense-tracker-wbnq.onrender.com/expenses/';  //prod
+  //private apiUrl = 'http://127.0.0.1:8000/expenses/';  //local
 
   constructor(private http: HttpClient) {}
 

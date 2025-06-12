@@ -1,66 +1,79 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ExpenseService, Expense } from "../expense"
-import { RouterModule } from '@angular/router';
+import { Expense, ExpenseService } from '../expense';
 import { CommonModule } from '@angular/common';
-import { Table } from '../table/table';
-import { take } from 'rxjs';
+import { ChangeDetectorRef } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { ToastService } from '../shared/toast';
+
 @Component({
-  selector: 'app-home',
-  imports: [RouterModule ,CommonModule , Table],
-  templateUrl: './home.html',
-  styleUrl: './home.scss'
+  selector: 'app-dashboard',
+  imports: [CommonModule,RouterModule],
+  templateUrl: './dashboard.html',
+  styleUrl: './dashboard.scss'
 })
-export class Home {
-  expenses: Expense[] = [];
-  currentMonth: any
-  currentMonthExpense: any
-  lastMonthExpense: any
-  lifeTimeExpense: any
-  constructor(private expenseService: ExpenseService) {
+export class Dashboard {
 
-  }
-
+  currentMonth: string = "JUNE"
+  currentMonthExpense: Expense[] = [];
+  lastMonthExpense: Expense[] = [];
+  LifetimeExpenses: Expense[] = [];
+  total_amount_this_month: number = 0;
+  total_amount_last_month: number = -0;
+  total_amount_lifetime: number = -0;
+  constructor(private expenseService: ExpenseService, private cdRef: ChangeDetectorRef ,private toastService: ToastService) { }
 
   ngOnInit() {
-    this.getExpense();
-    this.getCurrentMonthExpense()
-    this.getLastMonthExpense()
-    this.currentMonth = this.getCurrentMonthAndYear()
+
+
+    this.getCurrentMonthExpense();
+    this.getLastMonthExpense();
+    this.getLifetimeExpense();
+
+this.toastService.show('Expense saved! Redirecting to Dashboard', 'warning');
+
   }
 
-  getExpense() {
-    const fromDate = '2025-06-01';
-    const toDate = this.getCurrentDate()
-
-    this.expenseService.getExpenses(fromDate, toDate).subscribe(data => {
-      this.expenses = data;
-      this.lifeTimeExpense = data.reduce((sum, item) => sum + item.amount, 0);
-    });
-  }
   getCurrentMonthExpense() {
     const fromDate = this.getFirstDateOfCurrentMonth();
     const toDate = this.getCurrentDate();
     this.expenseService.getExpenses(fromDate, toDate).subscribe(data => {
-
-      this.currentMonthExpense = data.reduce((sum, item) => sum + item.amount, 0);
-
+      this.currentMonthExpense = data;
+      this.calculateTotalThisMonth();
+      this.cdRef.detectChanges();
     });
   }
   getLastMonthExpense() {
     const fromDate = this.getFirstDateOfLastMonth()
     const toDate = this.getLastDateOfLastMonth()
     this.expenseService.getExpenses(fromDate, toDate).subscribe(data => {
-
-      this.lastMonthExpense = data.reduce((sum, item) => sum + item.amount, 0);
-
-
+      this.lastMonthExpense = data;
+      this.calculateTotalLastMonth();
+      this.cdRef.detectChanges();
     });
   }
+  getLifetimeExpense() {
 
+    const fromDate = '2025-06-01';
+    const toDate = this.getCurrentDate()
 
-
-  // utility-functions
+    this.expenseService.getExpenses(fromDate, toDate).subscribe(data => {
+      this.LifetimeExpenses = data;
+      this.calculateLifetime();
+      this.cdRef.detectChanges();
+    });
+  }
+  calculateTotalThisMonth(): void {
+    this.total_amount_this_month = this.currentMonthExpense.reduce((sum, expense) => sum + Number(expense.amount), 0);
+    console.log('calculateTotal called, totalAmount:', this.total_amount_this_month);
+  }
+  calculateTotalLastMonth(): void {
+    this.total_amount_last_month = this.lastMonthExpense.reduce((sum, expense) => sum + Number(expense.amount), 0);
+    console.log('calculateTotal called, totalAmount:', this.total_amount_last_month);
+  }
+  calculateLifetime(): void {
+    this.total_amount_lifetime = this.LifetimeExpenses.reduce((sum, expense) => sum + Number(expense.amount), 0);
+    console.log('calculateTotal called, totalAmount:', this.total_amount_lifetime);
+  }
   getCurrentMonthAndYear(): string {
     const monthNames = [
       "January", "February", "March", "April", "May", "June",
@@ -123,10 +136,5 @@ export class Home {
 
     return `${year}-${month}-${day}`;
   }
-
-
-
-
-
 
 }

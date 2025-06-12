@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ExpenseService } from '../expense';
+import { ToastService } from '../shared/toast';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-expense',
   imports: [CommonModule, ReactiveFormsModule],
@@ -10,8 +12,12 @@ import { ExpenseService } from '../expense';
 })
 export class AddExpense {
 expenseForm: FormGroup;
+isSubmitting = false;
 
-  constructor(private fb: FormBuilder  , private expenseService: ExpenseService ) {
+
+  constructor(private fb: FormBuilder  , private expenseService: ExpenseService ,
+              private toastService: ToastService , private router: Router) {
+                
     this.expenseForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(3)]],
       amount: [0, [Validators.required, Validators.min(0.01)]],
@@ -21,22 +27,35 @@ expenseForm: FormGroup;
   }
 
   onSubmit() {
-    if (this.expenseForm.valid) {
-      const expenseData = this.expenseForm.value;
-      console.log('Form Data:', expenseData);
-       this.expenseService.addExpense(expenseData).subscribe({
+  if (this.expenseForm.valid) {
+    this.isSubmitting = true;
+
+    const expenseData = this.expenseForm.value;
+    this.expenseService.addExpense(expenseData).subscribe({
       next: (response) => {
+        this.toastService.show('Expense saved! Redirecting to Dashboard', 'success');
         console.log('Expense added:', response);
-        // Optional: Form reset ya success message show karna
+
+        // ✅ Show toast immediately
+        this.toastService.show('Expense saved! Redirecting to Dashboard', 'success');
         this.expenseForm.reset();
+
+        this.isSubmitting = false; 
+
+        setTimeout(() => {
+          this.router.navigate(['/dashboard']);
+        }, 2000);
       },
       error: (error) => {
         console.error('Error adding expense:', error);
-        // Optional: User ko error feedback dena
+        this.toastService.show('Error Occurred', 'error');
+        this.isSubmitting = false;
       }
     });
-    } else {
-      this.expenseForm.markAllAsTouched();
-    }
+  } else {
+    this.expenseForm.markAllAsTouched();
   }
+}
+
+
 }
